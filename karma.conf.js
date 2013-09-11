@@ -23,7 +23,7 @@ module.exports = function(config) {
       // Specs helpers
       'components/jasmine-helpers/*.js',
 
-      'ng-gc-intervals-directive*.js'
+      'ng-gc-upload-directive*.js'
     ],
 
 

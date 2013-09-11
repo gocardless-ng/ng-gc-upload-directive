@@ -1,6 +1,6 @@
-# ng-gc-intervals-directive
+# ng-gc-upload-directive
 
-![](https://circleci.com/gh/gocardless-ng/ng-gc-intervals-directive.png?circle-token=:circle-token)
+![](https://circleci.com/gh/gocardless-ng/ng-gc-upload-directive.png?circle-token=:circle-token)
 
 ## Copyright and license
 

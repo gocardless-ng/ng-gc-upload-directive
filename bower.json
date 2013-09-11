@@ -1,7 +1,7 @@
 {
-  "name": "ng-gc-intervals-directive",
+  "name": "ng-gc-upload-directive",
   "version": "0.1.0",
-  "main": "ng-gc-intervals-directive.js",
+  "main": "ng-gc-upload-directive.js",
   "dependencies": {
     "bower-angular": "git@github.com:angular/bower-angular.git#v1.2.0-rc.2",
     "ng-gc-interval-messages-service": "git@github.com:gocardless-ng/ng-gc-interval-messages-service.git",

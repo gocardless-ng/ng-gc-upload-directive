@@ -1,12 +1,12 @@
 {
-  "name": "ng-gc-intervals-directive",
+  "name": "ng-gc-upload-directive",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/gocardless-ng/ng-gc-intervals-directive.git"
+    "url": "git://github.com/gocardless-ng/ng-gc-upload-directive.git"
   },
   "bugs": {
-    "url": "http://github.com/gocardless-ng/ng-gc-intervals-directive/issues"
+    "url": "http://github.com/gocardless-ng/ng-gc-upload-directive/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
