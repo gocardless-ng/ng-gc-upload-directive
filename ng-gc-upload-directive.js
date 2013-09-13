@@ -35,6 +35,17 @@ angular.module('gcUpload', [])
   .directive('gcUpload', [
     '$log',
     function gcUploadDirective($log) {
+
+      function getActionAttrValue(element) {
+        var action = element.attr('action');
+        var separator = action.indexOf('?') === -1 ? '?' : '&';
+        var tStamp = +(new Date());
+
+        // Append a timestamp field to the url
+        // to prevent browser caching results
+        return action + separator + '_t=' + tStamp;
+      }
+
       return {
         scope: true,
         require: 'form',
@@ -44,16 +55,6 @@ angular.module('gcUpload', [])
 
           var options = scope.$eval(attrs.gcUpload) || {};
 
-          function getActionAttrValue() {
-            var action = element.attr('action');
-            var separator = action.indexOf('?') === -1 ? '?' : '&';
-            var tStamp = +(new Date());
-
-            // Append a timestamp field to the url
-            // to prevent browser caching results
-            return action + separator + '_t=' + tStamp;
-          }
-
           function setLoadingState(state) {
             scope.$isUploading = state;
           }
@@ -61,7 +62,7 @@ angular.module('gcUpload', [])
           element.attr({
             'target': 'upload-iframe-' + iframeID,
             'method': 'post',
-            'action': getActionAttrValue(),
+            'action': getActionAttrValue(element),
             'enctype': 'multipart/form-data',
             'encoding': 'multipart/form-data'
           });
@@ -94,14 +95,12 @@ angular.module('gcUpload', [])
               });
 
               // Get iframe body contents
-              var bodyContent = (iframe[0].contentDocument ||
+              var bodyElement = (iframe[0].contentDocument ||
                 iframe[0].contentWindow.document).body;
-              var content;
+              var content = angular.element(bodyElement).text();
               try {
-                content = angular.fromJson(bodyContent.innerText);
+                content = angular.fromJson(content);
               } catch (e) {
-                // Fall back to html if json parse failed
-                content = bodyContent.innerHTML;
                 $log.warn('Response is not valid JSON');
               }
 
